@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 20:18:01 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/17 20:59:07 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/20 11:26:28 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_strcatarr(int size, char **tdarr, char *arr, char *sep)
 		}
 		i++;
 	}
+	arr[k] = 0;
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
@@ -57,11 +58,10 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		stock;
 	char	*tab;
 
-	i = 0;
+	i = -1;
 	stock = 0;
-	if (size < 0)
-		return (1);
-	while (i < size)
+	tab = 0;
+	while (++i < size)
 	{
 		j = 0;
 		while (j < ft_strlen(strs[i]))
@@ -69,9 +69,13 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			stock++;
 			j++;
 		}
-		i++;
 	}
-	tab = (char*)malloc(stock);
+	if (malloc(stock + (i - 1) * ft_strlen(sep) + 1) != NULL)
+		tab = (char*)malloc((stock) + (i - 1) * ft_strlen(sep) + 1);
+	else
+		return (tab);
+	if (size == 0)
+		return (tab);
 	ft_strcatarr(size, strs, tab, sep);
 	return (tab);
 }
