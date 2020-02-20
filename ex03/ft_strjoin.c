@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 20:18:01 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/20 11:26:28 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/20 20:51:17 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		}
 	}
 	if (malloc(stock + (i - 1) * ft_strlen(sep) + 1) != NULL)
-		tab = (char*)malloc((stock) + (i - 1) * ft_strlen(sep) + 1);
+		tab = (char*)malloc(stock + (i - 1) * ft_strlen(sep) + 1);
 	else
-		return (tab);
+		return ((void*)0);
 	if (size == 0)
 		return (tab);
 	ft_strcatarr(size, strs, tab, sep);
