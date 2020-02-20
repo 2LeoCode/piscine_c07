@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:33:11 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/17 19:56:22 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/20 11:00:05 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_ultimate_range(int **range, int min, int max)
 		return (0);
 	}
 	if (min < 0 && max > INT_MAX + min)
-		return(-1);
+		return (-1);
 	tab = (int*)malloc(sizeof(int) * (max - min));
 	ft_recurs_job(tab, min, max, 0);
 	return (max - min);
